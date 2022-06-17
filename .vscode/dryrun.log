@@ -1,0 +1,102 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/eliaris_alvares/minishell_merged'
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/main.c -o objs_minishell/main.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/builtins/ft_pwd.c -o objs_minishell/ft_pwd.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/builtins/ft_echo.c -o objs_minishell/ft_echo.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/hash_insert.c -o objs_minishell/hash_insert.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/envp_key_value.c -o objs_minishell/envp_key_value.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/envp_length.c -o objs_minishell/envp_length.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/utilities/print_env_hash.c -o objs_minishell/print_env_hash.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/open_terminal.c -o objs_minishell/open_terminal.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/change_signals.c -o objs_minishell/change_signals.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/create_hashmap.c -o objs_minishell/create_hashmap.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/error.c -o objs_minishell/error.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/create_prompt.c -o objs_minishell/create_prompt.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/receive_command.c -o objs_minishell/receive_command.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/split_command.c -o objs_minishell/split_command.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/populate_hashmap.c -o objs_minishell/populate_hashmap.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/delete_hashmap.c -o objs_minishell/delete_hashmap.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/hashmap/hash.c -o objs_minishell/hash.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/parser/init_parser.c -o objs_minishell/init_parser.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/parser/clear_parser.c -o objs_minishell/clear_parser.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/parser/init_tokenizer.c -o objs_minishell/init_tokenizer.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/parser/clear_tokenizer.c -o objs_minishell/clear_tokenizer.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/clear_all.c -o objs_minishell/clear_all.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/system/exit_minishell.c -o objs_minishell/exit_minishell.o
+mkdir -p ./objs_minishell/
+gcc -Wall -Wextra -Werror -I ./include/ -c ./src/parser/tokenizer.c -o objs_minishell/tokenizer.o
+echo "\033[34mObject files generated!\033[0m"
+echo "\e[0;33mCompiling libft...\033[0m"
+make -sC ./libft/ libft.a
+make[1]: Entering directory '/home/eliaris_alvares/minishell_merged/libft'
+gcc -Wall -Wextra -Werror   -c -o ft_atoi.o ft_atoi.c
+gcc -Wall -Wextra -Werror   -c -o ft_atol.o ft_atol.c
+gcc -Wall -Wextra -Werror   -c -o ft_bzero.o ft_bzero.c
+gcc -Wall -Wextra -Werror   -c -o ft_isalnum.o ft_isalnum.c
+gcc -Wall -Wextra -Werror   -c -o ft_isalpha.o ft_isalpha.c
+gcc -Wall -Wextra -Werror   -c -o ft_isascii.o ft_isascii.c
+gcc -Wall -Wextra -Werror   -c -o ft_isdigit.o ft_isdigit.c
+gcc -Wall -Wextra -Werror   -c -o ft_isprint.o ft_isprint.c
+gcc -Wall -Wextra -Werror   -c -o ft_memchr.o ft_memchr.c
+gcc -Wall -Wextra -Werror   -c -o ft_memcpy.o ft_memcpy.c
+gcc -Wall -Wextra -Werror   -c -o ft_memcmp.o ft_memcmp.c
+gcc -Wall -Wextra -Werror   -c -o ft_memset.o ft_memset.c
+gcc -Wall -Wextra -Werror   -c -o ft_strchr.o ft_strchr.c
+gcc -Wall -Wextra -Werror   -c -o ft_strlcat.o ft_strlcat.c
+gcc -Wall -Wextra -Werror   -c -o ft_toupper.o ft_toupper.c
+gcc -Wall -Wextra -Werror   -c -o ft_strlcpy.o ft_strlcpy.c
+gcc -Wall -Wextra -Werror   -c -o ft_strlen.o ft_strlen.c
+gcc -Wall -Wextra -Werror   -c -o ft_strncmp.o ft_strncmp.c
+gcc -Wall -Wextra -Werror   -c -o ft_calloc.o ft_calloc.c
+gcc -Wall -Wextra -Werror   -c -o ft_strrchr.o ft_strrchr.c
+gcc -Wall -Wextra -Werror   -c -o ft_memmove.o ft_memmove.c
+gcc -Wall -Wextra -Werror   -c -o ft_strdup.o ft_strdup.c
+gcc -Wall -Wextra -Werror   -c -o ft_strnstr.o ft_strnstr.c
+gcc -Wall -Wextra -Werror   -c -o ft_strjoin.o ft_strjoin.c
+gcc -Wall -Wextra -Werror   -c -o ft_putchar_fd.o ft_putchar_fd.c
+gcc -Wall -Wextra -Werror   -c -o ft_putstr_fd.o ft_putstr_fd.c
+gcc -Wall -Wextra -Werror   -c -o ft_putendl_fd.o ft_putendl_fd.c
+gcc -Wall -Wextra -Werror   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
+gcc -Wall -Wextra -Werror   -c -o ft_strmapi.o ft_strmapi.c
+gcc -Wall -Wextra -Werror   -c -o ft_strtrim.o ft_strtrim.c
+gcc -Wall -Wextra -Werror   -c -o ft_substr.o ft_substr.c
+gcc -Wall -Wextra -Werror   -c -o ft_split.o ft_split.c
+gcc -Wall -Wextra -Werror   -c -o ft_itoa.o ft_itoa.c
+gcc -Wall -Wextra -Werror   -c -o ft_striteri.o ft_striteri.c
+gcc -Wall -Wextra -Werror   -c -o ft_str_isdigit.o ft_str_isdigit.c
+gcc -Wall -Wextra -Werror   -c -o ft_putchar.o ft_putchar.c
+gcc -Wall -Wextra -Werror   -c -o ft_putstr.o ft_putstr.c
+gcc -Wall -Wextra -Werror   -c -o ft_add_char_to_str.o ft_add_char_to_str.c
+gcc -Wall -Wextra -Werror   -c -o ft_putnbr.o ft_putnbr.c
+gcc -Wall -Wextra -Werror   -c -o ft_tolower.o ft_tolower.c
+gcc -Wall -Wextra -Werror   -c -o ft_strnjoin.o ft_strnjoin.c
+gcc -Wall -Wextra -Werror   -c -o ft_strcmp.o ft_strcmp.c
+ar -rcs libft.a ft_atoi.o ft_atol.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcpy.o ft_memcmp.o ft_memset.o ft_strchr.o ft_strlcat.o ft_toupper.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_calloc.o ft_strrchr.o ft_memmove.o ft_strdup.o ft_strnstr.o ft_strjoin.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_strmapi.o ft_strtrim.o ft_substr.o ft_split.o ft_itoa.o ft_striteri.o ft_str_isdigit.o ft_putchar.o ft_putstr.o ft_add_char_to_str.o ft_putnbr.o ft_tolower.o ft_strnjoin.o ft_strcmp.o
+make[1]: Leaving directory '/home/eliaris_alvares/minishell_merged/libft'
+gcc -Wall -Wextra -Werror -I ./include/ -o minishell ./objs_minishell/main.o ./objs_minishell/ft_pwd.o ./objs_minishell/ft_echo.o ./objs_minishell/hash_insert.o ./objs_minishell/envp_key_value.o ./objs_minishell/envp_length.o ./objs_minishell/print_env_hash.o ./objs_minishell/open_terminal.o ./objs_minishell/change_signals.o ./objs_minishell/create_hashmap.o ./objs_minishell/error.o ./objs_minishell/create_prompt.o ./objs_minishell/receive_command.o ./objs_minishell/split_command.o ./objs_minishell/populate_hashmap.o ./objs_minishell/delete_hashmap.o ./objs_minishell/hash.o ./objs_minishell/init_parser.o ./objs_minishell/clear_parser.o ./objs_minishell/init_tokenizer.o ./objs_minishell/clear_tokenizer.o ./objs_minishell/clear_all.o ./objs_minishell/exit_minishell.o ./objs_minishell/tokenizer.o -L ./libft/ -lft -lreadline
+echo "\033[32mMinishell is ready to run! :)\033[0m"
+make: Leaving directory '/home/eliaris_alvares/minishell_merged'
+ 

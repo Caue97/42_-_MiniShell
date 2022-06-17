@@ -1,0 +1,490 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2014 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Wed May 18 12:33:47 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from 'Makefile', line 12)
+CREAD = -lreadline
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/eliaris_alvares/minishell_merged
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/eliaris_alvares/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/node
+# makefile (from 'Makefile', line 10)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from 'Makefile', line 2)
+BLUE = \033[34m
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 52)
+OBJS = $(addprefix $(OBJS_PATH), $(notdir $(SRCS:.c=.o)))
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# makefile (from 'Makefile', line 16)
+OBJS_PATH = ./objs_minishell/
+# environment
+VSCODE_CWD = /mnt/c/Users/eliar/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/eliaris_alvares/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/eliar/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/eliar/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Android/Android Studio:/mnt/c/Users/eliar/OneDrive/Documentos/flutter_windows_3.0.0-stable/flutter/bin:/mnt/c/Program Files/Java/jre1.8.0_333:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'Makefile', line 44)
+VPATH := ./src/ ./src/builtins ./src/executable ./src/hashmap ./src/system ./src/parser ./src/utilities 
+# environment
+VSCODE_LOG_STACK = false
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/eliaris_alvares/minishell_merged
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-e4f91a6d-edc2-42cf-afb4-ef6c1a90c6a0.sock
+# environment
+WSL_INTEROP = /run/WSL/1271_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# makefile (from 'Makefile', line 1)
+GREEN = \033[32m
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/eliaris_alvares
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+LOGNAME = eliaris_alvares
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'Makefile', line 11)
+CINC = -I $(INCLUDE_PATH)
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from 'Makefile', line 19)
+SRCS = main.c ft_pwd.c ft_echo.c hash_insert.c envp_key_value.c envp_length.c print_env_hash.c open_terminal.c change_signals.c create_hashmap.c error.c create_prompt.c receive_command.c split_command.c populate_hashmap.c delete_hashmap.c hash.c init_parser.c clear_parser.c init_tokenizer.c clear_tokenizer.c clear_all.c exit_minishell.c tokenizer.c
+# environment
+SHLVL = 2
+# makefile (from 'Makefile', line 7)
+LIBFT = libft.a
+# makefile (from 'Makefile', line 9)
+CC = gcc
+# default
+MAKE_VERSION := 4.1
+# environment
+USER = eliaris_alvares
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from 'Makefile', line 6)
+NAME = minishell
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/eliar/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 3)
+ 
+YELLOW = \e[0;33m
+# automatic
++F = $(notdir $+)
+# makefile (from 'Makefile', line 17)
+INCLUDE_PATH = ./include/
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 15)
+SRCS_PATH = ./src/
+# makefile (from 'Makefile', line 14)
+LIBFT_PATH = ./libft/
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 4)
+RESET = \033[0m
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+WSL_DISTRO_NAME = Ubuntu-18.04
+# variable set hash-table stats:
+# Load=86/1024=8%, Rehash=0, Collisions=8/131=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 2284): 9 files, no impossibilities.
+# ./src/system (device 2080, inode 61116): 10 files, no impossibilities.
+# ./src (device 2080, inode 61092): 9 files, no impossibilities.
+# ./src/executable/objs_minishell: could not be stat'd.
+# ./src/utilities (device 2080, inode 61121): 3 files, no impossibilities.
+# ./src/hashmap (device 2080, inode 61102): 14 files, no impossibilities.
+# ./src/parser (device 2080, inode 79443): 7 files, no impossibilities.
+# ./src/builtins (device 2080, inode 61093): 9 files, no impossibilities.
+# ./src/system/objs_minishell: could not be stat'd.
+# ./src/objs_minishell: could not be stat'd.
+# ./src/utilities/objs_minishell: could not be stat'd.
+# ./src/hashmap/objs_minishell: could not be stat'd.
+# ./src/parser/objs_minishell: could not be stat'd.
+# ./src/builtins/objs_minishell: could not be stat'd.
+# ./src/executable (device 2080, inode 61100): 3 files, no impossibilities.
+
+# 64 files, no impossibilities in 15 directories.
+
+# Implicit Rules
+
+objs_minishell/%.o: %.c
+#  recipe to execute (from 'Makefile', line 55):
+				@mkdir -p $(OBJS_PATH)
+				@$(CC) $(CFLAGS) $(CINC) -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+objs_minishell/clear_tokenizer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: minishell
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+
+# Not a target:
+objs_minishell/create_hashmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/hash.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/ft_pwd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/envp_key_value.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/clear_all.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/print_env_hash.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-17 12:05:21.558391
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+objs_minishell/exit_minishell.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/init_parser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+objs_minishell/main.o: ./src/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objs_minishell/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := ./src/main.c
+# automatic
+# | := 
+# automatic
+# < := ./src/main.c
+# automatic
+# ^ := ./src/main.c
+# automatic
+# ? := ./src/main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/18=6%
+#  recipe to execute (from 'Makefile', line 55):
+				@mkdir -p $(OBJS_PATH)
+				@$(CC) $(CFLAGS) $(CINC) -c $< -o $@
+
+# Not a target:
+objs_minishell/change_signals.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+minishell: objs_minishell/main.o objs_minishell/ft_pwd.o objs_minishell/ft_echo.o objs_minishell/hash_insert.o objs_minishell/envp_key_value.o objs_minishell/envp_length.o objs_minishell/print_env_hash.o objs_minishell/open_terminal.o objs_minishell/change_signals.o objs_minishell/create_hashmap.o objs_minishell/error.o objs_minishell/create_prompt.o objs_minishell/receive_command.o objs_minishell/split_command.o objs_minishell/populate_hashmap.o objs_minishell/delete_hashmap.o objs_minishell/hash.o objs_minishell/init_parser.o objs_minishell/clear_parser.o objs_minishell/init_tokenizer.o objs_minishell/clear_tokenizer.o objs_minishell/clear_all.o objs_minishell/exit_minishell.o objs_minishell/tokenizer.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+#  recipe to execute (from 'Makefile', line 61):
+			@echo "$(BLUE)Object files generated!$(RESET)"
+			@echo "$(YELLOW)Compiling libft...$(RESET)"
+			@$(MAKE) -sC $(LIBFT_PATH) $(LIBFT)
+			@$(CC) $(CFLAGS) $(CINC) -o $(NAME) $(OBJS) -L $(LIBFT_PATH) -lft $(CREAD)
+			@echo "$(GREEN)Minishell is ready to run! :)$(RESET)"
+
+# Not a target:
+objs_minishell/error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/populate_hashmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 76):
+		@make -sC $(LIBFT_PATH) fclean
+		@rm -rf $(NAME)
+
+# Not a target:
+objs_minishell/split_command.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/open_terminal.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/clear_parser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 72):
+		@make -sC $(LIBFT_PATH) clean
+		@rm -rf $(OBJS_PATH)
+
+# Not a target:
+objs_minishell/ft_echo.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/create_prompt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/receive_command.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/hash_insert.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/init_tokenizer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+./src/main.c:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-05-17 12:00:56.648391
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+objs_minishell/envp_length.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/delete_hashmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_minishell/tokenizer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+install:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+			sudo apt-get install libreadline-dev
+			@echo"$(GREEN)Readline ready!$(RESET)"
+
+# files hash-table stats:
+# Load=35/1024=3%, Rehash=0, Collisions=3/104=3%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# General ('VPATH' variable) search path:
+# ./src:./src/builtins:./src/executable:./src/hashmap:./src/system:./src/parser:./src/utilities
+
+# strcache buffers: 1 (0) / strings = 103 / storage = 1699 B / avg = 16 B
+# current buf: size = 8162 B / used = 1699 B / count = 103 / avg = 16 B
+
+# strcache performance: lookups = 147 / hit rate = 29%
+# hash-table stats:
+# Load=103/8192=1%, Rehash=0, Collisions=8/147=5%
+# Finished Make data base on Wed May 18 12:33:47 2022
+
+ 
