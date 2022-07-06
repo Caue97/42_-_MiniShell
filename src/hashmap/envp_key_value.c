@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   envp_key_value.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 14:22:30 by cado-car          #+#    #+#             */
-/*   Updated: 2022/05/10 12:17:31 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:47:10 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 /*	GET_KEY | GET_VALUE
 **	-------------------
 **	DESCRIPTION
 **	Both functions work together to extract from a variable single string the
-**	`key` (variable name) and `value` (variable content).
+**	`key` (variable name) and `value` (variable content). 
 **	PARAMETERS
 **	#1. The full string variable.
 **	RETURN VALUES
@@ -28,6 +28,8 @@ char	*get_key(char *variable)
 	char	*key;
 	int		i;
 
+	if (!ft_strchr(variable, '='))
+		return (NULL);
 	i = 0;
 	while (variable[i] != '=')
 		i++;
@@ -43,6 +45,8 @@ char	*get_value(char *variable)
 	char	*value;
 	int		i;
 
+	if (!ft_strchr(variable, '='))
+		return (NULL);
 	i = 0;
 	while (variable[i] != '=')
 		i++;

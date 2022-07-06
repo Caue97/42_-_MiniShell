@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   delete_hashmap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 15:11:50 by cado-car          #+#    #+#             */
-/*   Updated: 2022/05/10 12:16:54 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:38:38 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ static void	list_delete(t_hashlist *node);
 **	-
 */
 
-void	delete_hashmap(int type)
+void	delete_hashmap(void)
 {
 	t_hashtable	*table;
 	size_t		i;
 
 	i = 0;
-	table = g_data.vars[type];
+	table = g_data.environ;
 	while (i < table->size)
 		list_delete(table->list[i++]);
 	free(table->list);
+	envp_clear();
 	free(table);
 }
 

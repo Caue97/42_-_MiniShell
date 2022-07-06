@@ -16,7 +16,7 @@ SOURCES	=	ft_atoi.c  ft_atol.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_strmapi.c \
 			ft_strtrim.c ft_substr.c ft_split.c ft_itoa.c ft_striteri.c \
 			ft_str_isdigit.c ft_putchar.c ft_putstr.c ft_add_char_to_str.c \
-			ft_putnbr.c ft_tolower.c ft_strnjoin.c ft_strcmp.c
+			ft_putnbr.c ft_tolower.c ft_strnjoin.c ft_strcmp.c ft_strndup.c
 
 OBJECTS	=	$(SOURCES:.c=.o)
 

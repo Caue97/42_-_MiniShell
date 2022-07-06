@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   create_prompt.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:39:42 by elraira-          #+#    #+#             */
-/*   Updated: 2022/05/12 14:23:51 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:26:48 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 static char	*get_current_folder(void);
+
+/*	CREATE_PROMPT
+**	-------------
+**	DESCRIPTION
+**	The create_prompt function will malloc(3) a string properly formatted that
+**	will describe the minishell program and the current folder's path. 
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	-
+*/
 
 char	*create_prompt(void)
 {
@@ -21,11 +32,11 @@ char	*create_prompt(void)
 	char	*end;
 	char	*prompt;
 
-	name = ft_strdup("🐚🐚 MINISHELL");
+	name = ft_strdup("🐚🐚🐚 MINISHELL");
 	folder = get_current_folder();
 	end = ft_strdup(" $ ");
-	prompt = ft_strnjoin(9, ESC_BOLD_CYAN, name, ESC_BOLD_WHITE, ":",
-			ESC_BOLD_BLUE, folder, ESC_BOLD_WHITE, end, ESC_RESET_COLOR);
+	prompt = ft_strnjoin(9, ESC_BOLD_PURPLE, name, ESC_BOLD_BLACK, ":", \
+		ESC_BOLD_RED, folder, ESC_BOLD_BLACK, end, ESC_RESET_COLOR);
 	free(name);
 	free(folder);
 	free(end);
@@ -40,7 +51,7 @@ static char	*get_current_folder(void)
 
 	path = get_pwd();
 	folder = ft_strrchr(path, '/');
-	result = ft_strdup(&folder[1]);
+	result = ft_strjoin(&folder[1], "/");
 	free(path);
 	return (result);
 }

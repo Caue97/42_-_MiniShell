@@ -6,33 +6,62 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 12:26:34 by cado-car          #+#    #+#             */
-/*   Updated: 2022/06/09 18:17:43 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:37:40 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
+
+static void	read_line(void);
+static int	parse_line(void);
+
+/*	OPEN_TERMINAL
+**	-------------
+**	DESCRIPTION
+**	The open_terminal function is the core of the minishell program. It opens a
+**	command prompt to the user in an infinite loop up until the program is
+**	manually exited. The loop will first guarantee that the structs are cleared,
+**	then it will open and read a line written by the user, parse it and execute
+**	it, all of it using the main struct to pass data from one function to the
+**	others.
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	-
+*/
 
 void	open_terminal(void)
 {
-	char	*input;
-	char	*prompt;
-
 	while (1)
 	{
-		prompt = create_prompt();
 		change_input_signals();
-		input = readline(prompt);
-		if (!input)
-		{
-			printf("exit\n");
-			exit_minishell();
-		}
-		free(prompt);
-		add_history(input);
-		execute_builtin(&input);
-		sort_command(input);
-		
-		if (input)
-			free(input);
+		clear_parser();
+		clear_cmd();
+		read_line();
+		if (!parse_line())
+			continue ;
+		exec_line();
 	}
+}
+
+static void	read_line(void)
+{
+	char	*prompt;
+
+	prompt = create_prompt();
+	g_data.parser = init_parser();
+	g_data.parser->input = readline(prompt);
+	free(prompt);
+	if (!g_data.parser->input)
+		error("exit", 1, 0);
+	add_history(g_data.parser->input);
+}
+
+static int	parse_line(void)
+{
+	tokenizer();
+	if (!syntax_analysis())
+		return (0);
+	command_table();
+	return (1);
 }

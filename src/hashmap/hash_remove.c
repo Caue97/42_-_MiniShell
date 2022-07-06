@@ -3,48 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   hash_remove.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 11:44:47 by cado-car          #+#    #+#             */
-/*   Updated: 2022/05/10 12:17:06 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:59:02 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
+
+static void	free_node(t_hashlist *curr);
 
 /*	HASH_REMOVE
 **	-----------
-**	Removes a variable from the hashtable's correct hashlist.
+**	Removes a variable from the hashtable's correct hashlist. 
 **	PARAMETERS
 **	#1. The hashtable in which to remove the variable from;
-**	#2. The variable's key to delete.
+**	#2. The variable's key to delete. 
 **	RETURN VALUES
 **	-
 */
 
-void	hash_remove(int type, char *key)
+void	hash_remove(char *key)
 {
-	t_hashtable	*table;
-	t_hashlist	*last;
-	t_hashlist	*tmp;
+	t_hashlist	*curr;
+	t_hashlist	*prev;
+	int			index;
 
-	table = g_data.vars[type];
-	tmp = table->list[hash(key, table->size)];
-	last = NULL;
-	while (tmp)
+	index = hash(key, g_data.environ->size);
+	prev = NULL;
+	curr = g_data.environ->list[index];
+	while (curr)
 	{
-		if (!ft_strncmp(tmp->key, key, ft_strlen(key)))
+		if (!ft_strncmp(curr->key, key, ft_strlen(key) + 1))
 		{
-			if (!last)
-				table->list[hash(key, table->size)] = tmp->next;
+			if (!prev)
+				g_data.environ->list[index] = curr->next;
 			else
-				last->next = tmp->next;
-			free(tmp->key);
-			free(tmp->value);
-			free(tmp);
+				prev->next = curr->next;
+			free_node(curr);
+			break ;
 		}
-		last = tmp;
-		tmp = tmp->next;
+		prev = curr;
+		curr = curr->next;
 	}
-	return ;
+}
+
+static void	free_node(t_hashlist *curr)
+{
+	free(curr->key);
+	free(curr->value);
+	free(curr);
+	curr = NULL;
 }

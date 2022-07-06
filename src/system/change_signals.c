@@ -3,18 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   change_signals.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:21:14 by cado-car          #+#    #+#             */
-/*   Updated: 2022/05/13 19:10:49 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:14:07 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 static void	reprompt(int signal);
 
-/*ctrl-C displays a new prompt on a new line and ctrl-\ does nothing.
+/*	CHANGE_INPUT_SIGNALS
+**	--------------------
+**	DESCRIPTION
+**	It changes the default signals received by specific shortcuts when executing
+**	the main minishell function, to avoid that these signals will respond to the
+**	parent shell, instead of the current. 
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	-
 */
 
 void	change_input_signals(void)

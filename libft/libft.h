@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 14:02:22 by elraira-          #+#    #+#             */
-/*   Updated: 2022/05/03 11:46:54 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:18:01 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -456,9 +456,10 @@ char			**ft_split(char *s, char c);
  * @return char* the string created from the successive applications of 'f'.
  * Returns NULL if the allocation fails.
  */
-
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char			*ft_add_char_to_str(char *str, char c);
+
+char			*ft_strndup(const char *s1, size_t size);
 
 #endif

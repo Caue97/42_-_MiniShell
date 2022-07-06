@@ -3,33 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   envp_length.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:56:27 by cado-car          #+#    #+#             */
-/*   Updated: 2022/05/10 12:17:01 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:48:22 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 /*	ENVP_LENGTH
 **	-----------
 **	DESCRIPTION
-**	Gets the length of the environment variables' list.
+**	Gets the length of the environment variables' list. 
 **	PARAMETERS
 **	#1. The environment variables' list.
 **	RETURN VALUES
 **	The size_t number correspondent to the list's length.
 */
 
-size_t	envp_length(char **envp)
+size_t	envp_length(void)
 {
-	size_t	i;
+	t_hashtable	*table;
+	t_hashlist	*list;
+	size_t		i;
+	size_t		len;
 
-	if (!envp)
-		return (0);
 	i = 0;
-	while (envp[i])
+	table = g_data.environ;
+	list = NULL;
+	while (i < table->size)
+	{
+		list = table->list[i];
+		while (list)
+		{
+			if (list->att == ENV)
+				len++;
+			list = list->next;
+		}
 		i++;
-	return (i);
+	}
+	return (len);
 }

@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   hash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:12:43 by elraira-          #+#    #+#             */
-/*   Updated: 2022/05/10 12:17:12 by elraira-         ###   ########.fr       */
+/*   Updated: 2022/07/01 17:00:55 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 /*	HASH
 **	----
 **	This is an implementation of Daniel J. Bernstein's (also known as djb2) hash
 **	function. The idea is to initially set a variable called `hash` to the value
-**	5381 and subsequently multiply it by 33 (or (hash << 5) + hash) and add the
+**	5381 and subsequently multiply it by 33 (or (hash << 5) + hash) and add the 
 **	ASCII value of the current character to it, iterating over the entire word.
 **	PARAMETERS
 **	#1. The string `key` to be hashed;
-**	#2. The size of the hashtable.
+**	#2. The size of the hashtable. 
 **	RETURN VALUES
 **	The modulo of hash by the size of the given hashtable.
 */
