@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 16:41:37 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 16:42:42 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/09 20:01:42 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	token_expansion(t_tkn **tkn);
 static void	expand_redirects(t_cmd *cmd);
-// static int	is_wildcard_expandable(t_tkn *tkn);
+//static int	is_wildcard_expandable(t_tkn *tkn);
 
 /*	COMMAND_EXPANSION
 **	-----------------
@@ -72,8 +72,6 @@ static void	token_expansion(t_tkn **tkn)
 	int		pos;
 
 	pos = 0;
-	// if (is_wildcard_expandable((*tkn)->token))
-	// 	wildcard_expansion(tkn, &pos);
 	if ((*tkn)->token[pos] == '~')
 		tilde_expansion(tkn, &pos);
 	while ((*tkn)->token[pos])
@@ -86,32 +84,35 @@ static void	token_expansion(t_tkn **tkn)
 	}
 }
 
-// static int	is_wildcard_expandable(t_tkn *tkn)
-// {
-// 	char	*token;
-// 	int		pos;
-// 	int		is_in;
+/*	if (is_wildcard_expandable((*tkn)->token))
+		wildcard_expansion(tkn, &pos);
 
-// 	token = tkn->token;
-// 	pos = 0;
-// 	is_in = -1;
-// 	while (token[pos] && token[pos] != '/')
-// 	{
-// 		if (token[pos] == '\'' || token[pos] == '\"')
-// 		{
-// 			if (is_in == -1)
-// 				is_in == pos;
-// 			if (is_in >= 0 && token[is_in] == token[pos])
-// 				is_in == -1;
-// 		}
-// 		else if (token[pos] == '*')
-// 			break ;
-// 		pos++;
-// 	}
-// 	if (token[pos] == '*' && is_in == -1)
-// 		return (1);
-// 	return (0);
-// }
+static int	is_wildcard_expandable(t_tkn *tkn)
+{
+	char	*token;
+	int		pos;
+	int		is_in;
+
+	token = tkn->token;
+	pos = 0;
+	is_in = -1;
+	while (token[pos] && token[pos] != '/')
+	{
+		if (token[pos] == '\'' || token[pos] == '\"')
+		{
+			if (is_in == -1)
+				is_in == pos;
+			if (is_in >= 0 && token[is_in] == token[pos])
+				is_in == -1;
+		}
+		else if (token[pos] == '*')
+			break ;
+		pos++;
+	}
+	if (token[pos] == '*' && is_in == -1)
+		return (1);
+	return (0);
+} */
 
 void	swap_token(t_tkn *tkn, char	*new_token)
 {

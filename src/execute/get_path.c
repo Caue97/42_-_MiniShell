@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:43:05 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 17:43:18 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/09 19:56:32 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ char	*get_path(t_cmd *cmd)
 		path = ft_strdup(cmd->exec[0]);
 	else
 	{
-		path = path_setup(cmd);
+		if (ft_strchr(cmd->exec[0], '/') != NULL)
+			path = ft_strdup(cmd->exec[0]);
+		else
+			path = path_setup(cmd);
 		if (!path)
 		{
 			if (key_location("PATH"))
@@ -46,11 +49,6 @@ static char	*path_setup(t_cmd *cmd)
 	int		i;
 
 	path = NULL;
-	if (ft_strchr(cmd->exec[0], '/') != NULL)
-	{
-		path = ft_strdup(cmd->exec[0]);
-		return (path);
-	}
 	path_list = create_path_list();
 	if (path_list)
 	{

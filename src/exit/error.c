@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:47:30 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 17:47:40 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:55:54 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ static void	redirect_error(char *s, int flag)
 	if (flag == -51)
 		dprintf(2, "minishell: %s: No such file or directory\n", s);
 	if (flag == -52)
-		dprintf(2, "minishell: warning: here-document delimited by end-of-file (wanted `%s')\n", s);
+		dprintf(2, "minishell: warning: here-document delimited by \
+			end-of-file (wanted `%s')\n", s);
 	if (flag == -53)
 		dprintf(2, "Quit\n");
 	if (flag == -54)
