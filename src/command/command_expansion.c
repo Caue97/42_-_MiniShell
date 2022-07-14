@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_expansion.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 16:41:37 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/09 20:01:42 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/06/01 14:23:12 by cado-car          #+#    #+#             */
+/*   Updated: 2022/06/30 09:29:11 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	token_expansion(t_tkn **tkn);
 static void	expand_redirects(t_cmd *cmd);
-//static int	is_wildcard_expandable(t_tkn *tkn);
 
 /*	COMMAND_EXPANSION
 **	-----------------
@@ -83,36 +82,6 @@ static void	token_expansion(t_tkn **tkn)
 		pos++;
 	}
 }
-
-/*	if (is_wildcard_expandable((*tkn)->token))
-		wildcard_expansion(tkn, &pos);
-
-static int	is_wildcard_expandable(t_tkn *tkn)
-{
-	char	*token;
-	int		pos;
-	int		is_in;
-
-	token = tkn->token;
-	pos = 0;
-	is_in = -1;
-	while (token[pos] && token[pos] != '/')
-	{
-		if (token[pos] == '\'' || token[pos] == '\"')
-		{
-			if (is_in == -1)
-				is_in == pos;
-			if (is_in >= 0 && token[is_in] == token[pos])
-				is_in == -1;
-		}
-		else if (token[pos] == '*')
-			break ;
-		pos++;
-	}
-	if (token[pos] == '*' && is_in == -1)
-		return (1);
-	return (0);
-} */
 
 void	swap_token(t_tkn *tkn, char	*new_token)
 {

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unset.c                                         :+:      :+:    :+:   */
+/*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 16:04:47 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/01 16:05:19 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/04/28 16:44:46 by cado-car          #+#    #+#             */
+/*   Updated: 2022/06/17 00:17:16 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	set_single(char *key, char *value);
+/*	FT_UNSET
+**	--------
+**	DESCRIPTION
+**	Deletes a variable from the environ list.
+**	PARAMETERS
+**	#1. The complete exec list of parameters.
+**	RETURN VALUES
+**	0 for sucess, 1 for error.
+*/
 
 int	ft_unset(char **exec)
 {
@@ -22,33 +30,4 @@ int	ft_unset(char **exec)
 	while (exec[++i])
 		hash_remove(exec[i]);
 	return (0);
-}
-
-int	ft_set(char **exec)
-{
-	char	*key;
-	char	*value;
-	int		i;
-
-	i = -1;
-	while (exec[++i])
-	{
-		key = get_key(exec[i]);
-		if (!key)
-			continue ;
-		value = get_value(exec[i]);
-		set_single(key, value);
-	}
-	return (0);
-}
-
-static void	set_single(char *key, char *value)
-{
-	int		location;
-
-	location = key_location(key);
-	if (location == -1)
-		hash_insert(key, value, LOCAL);
-	else
-		hash_substitute(key, value);
 }

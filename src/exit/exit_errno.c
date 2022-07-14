@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_errno.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:49:06 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 17:49:14 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/06/17 12:16:59 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/07 10:34:42 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	exit_errno(char *errfile, int errnb)
 {
 	if (errnb == EACCES)
-		error(errfile, -50, 126);
+		error(errfile, -50, 1);
 	else if (errnb == ENOENT)
-		error(errfile, -51, 127);
+		error(errfile, -51, 1);
 	else
 		error(errfile, -5, 127);
 }

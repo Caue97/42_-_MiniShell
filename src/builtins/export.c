@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 15:16:53 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/07 16:51:47 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/04/28 16:18:21 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/04 11:17:16 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 static void	export_single(char *key, char *value);
 static void	print_exported(void);
+static int	is_valid_key(char *key);
+
+/*	FT_EXPORT
+**	---------
+**	DESCRIPTION
+**	Sets environment variables. If a variable already exists in the env list,
+**	it will substitute it. If it exists in the local list, it will then remove
+**	it from there and add it to the env. 
+**	PARAMETERS
+**	#1. The complete exec list of parameters.
+**	RETURN VALUES
+**	0 for sucess, 1 for error.
+*/
 
 int	ft_export(char **exec)
 {
@@ -29,8 +42,16 @@ int	ft_export(char **exec)
 		key = get_key(exec[i]);
 		if (!key)
 			key = ft_strdup(exec[i]);
-		value = get_value(exec[i]);
-		export_single(key, value);
+		if (!is_valid_key(key))
+		{
+			error(key, -6, 1);
+			free(key);
+		}
+		else
+		{
+			value = get_value(exec[i]);
+			export_single(key, value);
+		}
 	}
 	return (0);
 }
@@ -42,9 +63,9 @@ static void	export_single(char *key, char *value)
 	location = key_location(key);
 	if (location == -1)
 		hash_insert(key, value, ENV);
-	else if (location == ENV)
+	else if (location == ENV && value)
 		hash_substitute(key, value);
-	else
+	else if (location == LOCAL)
 		hash_export(key, ENV);
 }
 
@@ -72,4 +93,18 @@ static void	print_exported(void)
 		}
 		i++;
 	}
+}
+
+static int	is_valid_key(char *key)
+{
+	int	i;
+
+	i = 0;
+	while (key[i])
+	{
+		if (!ft_isalnum(key[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

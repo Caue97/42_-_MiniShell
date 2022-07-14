@@ -6,7 +6,7 @@
 #    By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 18:07:38 by felcaue-          #+#    #+#              #
-#    Updated: 2022/07/06 18:14:43 by felcaue-         ###   ########.fr        #
+#    Updated: 2022/07/13 15:35:04 by felcaue-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			= minishell
 LIBFT			= libft.a
 
 #compilation
-CC 				= gcc
+CC 				= cc
 CF 				= -g -Wall -Wextra -Werror
 CFI 			= -I $(INCLUDE)
 CREADLINE		= -lreadline
@@ -25,12 +25,14 @@ OBJ_PATH		= ./objs_minishell/
 INCLUDE 		= ./include/
 
 SRC				= main.c\
+				assign_word.c\
 				exit.c\
 				pwd.c\
 				export.c\
 				cd.c\
 				echo.c\
 				env.c\
+				set.c\
 				unset.c\
 				is_builtin.c\
 				clear.c\
@@ -58,7 +60,6 @@ SRC				= main.c\
 				init_parser.c\
 				open_terminal.c\
 				tokenizer.c\
-				token_print.c\
 				token_utils.c\
 				lexical_analysis.c\
 				syntax_analysis.c\
@@ -86,6 +87,7 @@ SRC				= main.c\
 				exec_line.c\
 				open_pipes.c\
 				define_redirects.c\
+				exec_command.c\
 				exec_commands.c\
 				exec_commands_signals.c\
 				exec_builtin.c\
@@ -93,12 +95,6 @@ SRC				= main.c\
 				get_path.c\
 				get_heredoc.c\
 				get_heredoc_signals.c\
-				dir_create.c\
-				dir_populate_list.c\
-				dir_add_sorted.c\
-				dir_remove.c\
-				dir_delete.c\
-				wordcmp.c\
 
 VPATH 			:= $(SRC_PATH)\
 				$(SRC_PATH)builtins\
@@ -121,7 +117,7 @@ $(OBJ_PATH)%.o: %.c
 				@printf "\n$(CY)Generating object...$(RC)\n"
 				mkdir -p $(OBJ_PATH)
 				$(CC) $(CF) $(CFI) -c $< -o $@
-				@printf "$(YE)Object ready!$(RC)"
+				@printf "$(GR)Object ready!$(RC)"
 
 $(NAME):		$(OBJ)
 				@printf "\n$(CY)Generating libft...$(RC)\n"

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 /*	CREATE_HASHTABLE
 **	--------------
@@ -30,7 +30,6 @@ t_hashtable	*init_hashtable(void)
 	table = malloc(sizeof(t_hashtable));
 	if (!table)
 		error(NULL, 0, 12);
-	table->envp = NULL;
 	table->size = 50;
 	table->count = 0;
 	table->list = ft_calloc(sizeof(t_hashlist *), 50);

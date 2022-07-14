@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_parenthesis.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:56:24 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 17:56:42 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/07/04 15:19:54 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/04 15:19:57 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ static int	check_parenthesis(t_tkn *tkn, t_tkn *next)
 		next->lexema == PIPE) && *tkn->token == '(')
 	{
 		error(tkn->token, -20, 2);
+		return (0);
+	}
+	if (next && (next->lexema == ASSIGN_WORD || next->lexema == WORD) && \
+		tkn->token[0] == ')')
+	{
+		error(next->token, -20, 2);
 		return (0);
 	}
 	return (is_parenthesis_closed());

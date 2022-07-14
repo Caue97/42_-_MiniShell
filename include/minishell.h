@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:48:20 by cado-car          #+#    #+#             */
-/*   Updated: 2022/07/01 14:18:21 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/13 15:16:22 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <dirent.h>
 # include <fcntl.h>
 
-# include "../libft/libft.h"
+# include "../libft/include/libft.h"
 # include "hashmap.h"
 # include "colors.h"
 # include "executables.h"
@@ -77,6 +77,7 @@ void		change_input_signals(void);
 void		error(char *s, int flag, int code);
 void		clear(void);
 void		clear_cmd(void);
+void		clear_exec_list(char **exec);
 void		clear_parser(void);
 void		clear_tokens(t_tkn **list);
 void		exit_errno(char *errfile, int errnb);
@@ -86,5 +87,14 @@ void		exit_errno(char *errfile, int errnb);
 */
 
 char		*create_prompt(void);
+
+/*
+** Environment variable vector utils
+*/
+
+void		envp_create(t_cmd *cmd);
+void		envp_clear(t_cmd *cmd);
+void		envp_swap(t_cmd *cmd);
+size_t		envp_length(char **envp);
 
 #endif

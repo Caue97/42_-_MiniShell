@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 11:10:54 by elraira-          #+#    #+#             */
-/*   Updated: 2022/07/07 16:51:17 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/04/29 12:02:00 by cado-car          #+#    #+#             */
+/*   Updated: 2022/06/17 00:17:32 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
-/* "echo" is a fundamental command found in most operating systems that offer a
-command line. It is frequently used in scripts, batch files, and as part of
-individual commands; anywhere you may need to insert text. Many command shells
-such as bash, ksh and csh implement echo as a built-in command.
-
-Options
--n	Do not output a trailing newline.
-
+/*	FT_ECHO
+**	-------
+**	DESCRIPTION
+**	Prints the parameter into the directory.
+**	PARAMETERS
+**	#1. The complete exec list of parameters.
+**	RETURN VALUES
+**	0 for sucess, 1 for error.
 */
 
 int	ft_echo(char **exec)

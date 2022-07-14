@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pwd.c                                           :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 11:04:34 by elraira-          #+#    #+#             */
-/*   Updated: 2022/07/01 15:23:01 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/04/14 12:46:39 by cado-car          #+#    #+#             */
+/*   Updated: 2022/06/16 20:32:30 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "./minishell.h"
 
-/**
- * @brief get the current working directory object
- *
- * @return char* null terminated and allocated string with the directory path.
- */
-
-char	*get_pwd(void)
-{
-	char	*buffer;
-
-	buffer = NULL;
-	return (getcwd(buffer, 0));
-}
-
-/**
- * @brief Prints the current working directory.
- *
- */
+/*	FT_PWD
+**	------
+**	DESCRIPTION
+**	Prints the current working directory.
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	-
+*/
 
 int	ft_pwd(void)
 {
@@ -39,4 +30,22 @@ int	ft_pwd(void)
 	printf("%s\n", pwd);
 	free(pwd);
 	return (0);
+}
+
+/*	GET_PWD
+**	-------
+**	DESCRIPTION
+**	Gets the current working directory.
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	The NULL terminated, malloc(3) allocated string with the directory path.
+*/
+
+char	*get_pwd(void)
+{
+	char	*buffer;
+
+	buffer = NULL;
+	return (getcwd(buffer, 0));
 }

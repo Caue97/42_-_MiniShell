@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 19:06:49 by elraira-          #+#    #+#             */
-/*   Updated: 2022/07/01 14:16:28 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/13 15:17:36 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_hashlist {
 
 typedef struct s_hashtable {
 	t_hashlist	**list;
-	char		**envp;
 	size_t		size;
 	size_t		count;
 }	t_hashtable;
@@ -37,10 +36,6 @@ typedef struct s_hashtable {
 ** Environment variables list
 */
 
-void		envp_create(void);
-void		envp_clear(void);
-void		envp_swap(void);
-size_t		envp_length(void);
 char		*get_key(char *variable);
 char		*get_value(char *variable);
 

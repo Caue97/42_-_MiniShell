@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:01:54 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/09 19:58:57 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/05/03 20:49:08 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/05 12:59:47 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,26 @@
 
 static char	*lexemas_print(int type);
 
-void	token_print_2(t_cmd *node, t_tkn *commands, t_tkn *redirects, int i)
+void	token_print(void)
 {
+	t_tkn	*token;
+	t_tkn	*commands;
+	t_tkn	*redirects;
+	t_cmd	*node;
+	int		i;
+
+	token = g_data.parser->tokens;
+	while (token)
+	{
+		printf("[TOKEN]  %s\t\t[LEXEMA]  %s\n", token->token, \
+			lexemas_print(token->lexema));
+		token = token->next;
+	}
+	node = g_data.cmd;
+	i = 1;
 	while (node)
 	{
-		printf("\nCOMMAND %d - PRIORITY LEVEL %d\n", i, node->priority_level);
+		printf("\nCOMMAND %d\n", i);
 		commands = node->commands;
 		printf("\t\tCOMMANDS FOR EXECVE\n");
 		while (commands)
@@ -40,28 +55,6 @@ void	token_print_2(t_cmd *node, t_tkn *commands, t_tkn *redirects, int i)
 		node = node->next;
 		i++;
 	}
-}
-
-void	token_print(void)
-{
-	t_tkn	*token;
-	t_tkn	*commands;
-	t_tkn	*redirects;
-	t_cmd	*node;
-	int		i;
-
-	token = g_data.parser->tokens;
-	while (token)
-	{
-		printf("[TOKEN]  %s\t\t[LEXEMA]  %s\n", token->token, \
-			lexemas_print(token->lexema));
-		token = token->next;
-	}
-	node = g_data.cmd;
-	i = 1;
-	commands = node->commands;
-	redirects = node->redirects;
-	token_print_2(node, commands, redirects, i);
 }
 
 static char	*lexemas_print(int type)

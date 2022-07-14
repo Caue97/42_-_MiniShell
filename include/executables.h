@@ -6,7 +6,7 @@
 /*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 15:06:37 by cado-car          #+#    #+#             */
-/*   Updated: 2022/07/01 14:14:41 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/13 15:14:33 by felcaue-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,18 @@ int		ft_echo(char **exec);
 int		ft_export(char **exec);
 int		ft_set(char **exec);
 int		ft_unset(char **exec);
-int		ft_env(char **exec);
+int		ft_env(t_cmd *cmd);
 int		ft_cd(char **exec);
 int		ft_pwd(void);
+void	assign_word(t_cmd *cmd);
 char	*get_pwd(void);
 int		is_builtin(t_cmd *cmd);
 int		is_forked(t_cmd *cmd);
 void	exec_builtin_in_child(t_cmd *cmd);
 void	exec_builtin_in_parent(t_cmd *cmd);
+void	exec_command(t_cmd *cmd);
+void	exec_child(t_cmd *cmd);
+void	wait_all_pids(int pid[MAX_PID], int id);
 
 /*
 ** Here document
@@ -62,6 +66,8 @@ void	exec_builtin_in_parent(t_cmd *cmd);
 int		get_heredoc(char *limiter);
 void	get_heredoc_parent_signal(void);
 void	get_heredoc_child_signal(void);
+void	expand_limiter(char **lim, int *flag);
+void	expand_line(char **line, int flag);
 
 /*
 ** Utils
@@ -70,40 +76,6 @@ void	get_heredoc_child_signal(void);
 char	*get_path(t_cmd *cmd);
 void	close_fds(void);
 void	close_fd(t_cmd *cmd, int flag);
-void	exec_commands_child_signals(void);
-
-/*
-** Built-ins
-*/
-
-int		ft_exit(char **exec);
-int		ft_echo(char **exec);
-int		ft_export(char **exec);
-int		ft_set(char **exec);
-int		ft_unset(char **exec);
-int		ft_env(char **exec);
-int		ft_cd(char **exec);
-int		ft_pwd(void);
-char	*get_pwd(void);
-int		is_builtin(t_cmd *cmd);
-int		is_forked(t_cmd *cmd);
-void	exec_builtin_in_child(t_cmd *cmd);
-void	exec_builtin_in_parent(t_cmd *cmd);
-
-/*
-** Here document
-*/
-
-int		get_heredoc(char *limiter);
-void	get_heredoc_parent_signal(void);
-void	get_heredoc_child_signal(void);
-
-/*
-** Utils
-*/
-
-char	*get_path(t_cmd *cmd);
-void	close_fds(void);
-void	close_fd(t_cmd *cmd, int flag);
+void	change_exec(t_cmd *cmd, int pos);
 
 #endif

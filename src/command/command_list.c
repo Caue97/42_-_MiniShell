@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 16:43:10 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 16:43:41 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/06/06 15:01:05 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/02 21:10:26 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static char	**put_in_list(t_tkn *tkn)
 
 	size = tkn_len(tkn) + 1;
 	list = ft_calloc(sizeof(char *), size);
+	if (!list)
+		error(NULL, 0, 11);
 	i = 0;
 	while (tkn)
 	{

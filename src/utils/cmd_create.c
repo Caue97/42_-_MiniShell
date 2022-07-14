@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:07:44 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/05 18:07:58 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/05/24 17:12:52 by cado-car          #+#    #+#             */
+/*   Updated: 2022/07/04 14:45:21 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ t_cmd	*cmd_create(int id)
 	cmd->commands = NULL;
 	cmd->redirects = NULL;
 	cmd->endpoint = -1;
-	cmd->priority_level = 0;
 	cmd->is_piped = 0;
 	cmd->exec = NULL;
 	cmd->exec_path = NULL;
+	cmd->envp = NULL;
 	cmd->fd_in = -2;
 	cmd->fd_out = -2;
 	cmd->errnb = 0;

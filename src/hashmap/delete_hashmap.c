@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   delete_hashmap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 15:11:50 by cado-car          #+#    #+#             */
-/*   Updated: 2022/07/01 16:38:38 by felcaue-         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:59:09 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 static void	list_delete(t_hashlist *node);
 
 /*	DELETE_HASHMAP
 **	--------------
-**	Deletes the hashtable and all its nodes.
+**	Deletes the hashtable and all its nodes, guaranteeing that the linked lists
+**	available are properly freed.
 **	PARAMETERS
-**	#1. The type of the hashtable to delete.
+**	#1. The type of the hashtable to delete (Environment, Local or Both). 
 **	RETURN VALUES
 **	-
 */
@@ -33,7 +34,6 @@ void	delete_hashmap(void)
 	while (i < table->size)
 		list_delete(table->list[i++]);
 	free(table->list);
-	envp_clear();
 	free(table);
 }
 

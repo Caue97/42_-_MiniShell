@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felcaue- <felcaue-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 14:58:41 by felcaue-          #+#    #+#             */
-/*   Updated: 2022/07/01 15:16:22 by felcaue-         ###   ########.fr       */
+/*   Created: 2022/06/09 15:50:11 by cado-car          #+#    #+#             */
+/*   Updated: 2022/06/20 13:54:00 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 static int	is_numberic(char *param);
+
+/*	FT_EXIT
+**	-------
+**	DESCRIPTION
+**	Exits minishell.
+**	PARAMETERS
+**	-
+**	RETURN VALUES
+**	-
+*/
 
 int	ft_exit(char **exec)
 {
